@@ -1,3 +1,4 @@
+let windowSize = window.screen;
 let sounds = document.querySelector("#effects");
 let music = document.createElement("AUDIO");
 music.setAttribute("src", "sounds/music.mp3");
@@ -67,6 +68,7 @@ let livesCount = lives.textContent;
 livesCount = parseInt(livesCount);
 let scoresNames = [];
 let numbershot = [0];
+let theTop = [];
 const saveScores =()=>{
     let decide = prompt(`Kills: ${killsCount}. Puntuacion: ${scoreCount}. Quieres guardar estos datos? S-Si N-No`);
     let scoreTableDiv = document.querySelector(".score-table-container");
@@ -140,51 +142,137 @@ const saveScores =()=>{
 };
 const monsterAttack = () =>{
     monster.style.transition = "none";
-    monster.style.right = "10px";
+    monster.style.right = "0vw";
     monster.style.transition = "right 3s linear";
-    monster.style.right = "800px";
-    setTimeout(() => {   
-        let monsterPosition = monster.getBoundingClientRect();
-        let XMonster = monsterPosition.right;
-        if (XMonster <= 650) {
-            livesCount -= 1;
-            lives.innerHTML = livesCount;
-            if (livesCount === 0){
-                livesCount = 0;
-                lives.innerHTML = livesCount;
-                gun.style.top = "1000px";         
-                setTimeout(() => {
-                    gun.style.display ="none"; 
-                }, 500);  
-                music.pause();
-                ogreLaugh.play();
-                monster.style.right = "1060px";
-                monster.style.top = "100px";
-                setTimeout(() => {
-                    saveScores();
-                }, 3010);
-            } else if (livesCount === 1) {
-                gun.style.backgroundColor = "#444"; 
-                monster.style.transition = "none";
-                monster.style.right = "0px";
-                setTimeout(() => {
-                    monsterAttack();
-                }, 100);
-            } else if(livesCount === 2){    
-                gun.style.backgroundColor = "#aaa";      
-                monster.style.transition = "none";
-                monster.style.right = "0px";
-                setTimeout(() => {
-                    monsterAttack();
-                }, 100);
-            } else if(livesCount === 3){
-                monster.style.transition = "none";
-                monster.style.right = "0px";
-                setTimeout(() => {
-                    monsterAttack();
-                }, 100);
-            };  
-        };
+    monster.style.right = "57vw";
+    setTimeout(() => { 
+        monsterPosition = monster.getBoundingClientRect();
+        XMonster = monsterPosition.right;
+        let destiny =  (windowSize.width - XMonster) * 0.1;
+        console.log(destiny);
+        setTimeout(() => {
+            if(windowSize.width > 1000 && windowSize.width <= 2000){
+                if (destiny > 56 && destiny <= 115) {
+                    livesCount -= 1;
+                    lives.innerHTML = livesCount;
+                    if (livesCount === 0){
+                        livesCount = 0;
+                        lives.innerHTML = livesCount;
+                        gun.style.top = "130vh";         
+                        setTimeout(() => {
+                            gun.style.display ="none"; 
+                        }, 500);  
+                        music.pause();
+                        ogreLaugh.play();
+                        monster.style.right = "75vw";
+                        monster.style.top = "20vh";
+                        setTimeout(() => {
+                            saveScores();
+                        }, 3010);
+                    } else if (livesCount === 1) {
+                        gun.style.backgroundColor = "#444"; 
+                        monster.style.transition = "none";
+                        monster.style.right = "0px";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    } else if(livesCount === 2){    
+                        gun.style.backgroundColor = "#aaa";      
+                        monster.style.transition = "none";
+                        monster.style.right = "0vw";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    } else if(livesCount === 3){
+                        monster.style.transition = "none";
+                        monster.style.right = "0vw";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    };  
+                };
+            }else if (windowSize.width >= 700 && windowSize.width <= 1000) {
+                if (destiny >= 39 && destiny <= 57) {
+                    livesCount -= 1;
+                    lives.innerHTML = livesCount;
+                    if (livesCount === 0){
+                        livesCount = 0;
+                        lives.innerHTML = livesCount;
+                        gun.style.top = "130vh";         
+                        setTimeout(() => {
+                            gun.style.display ="none"; 
+                        }, 500);  
+                        music.pause();
+                        ogreLaugh.play();
+                        monster.style.right = "75vw";
+                        monster.style.top = "20vh";
+                        setTimeout(() => {
+                            saveScores();
+                        }, 3010);
+                    } else if (livesCount === 1) {
+                        gun.style.backgroundColor = "#444"; 
+                        monster.style.transition = "none";
+                        monster.style.right = "0px";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    } else if(livesCount === 2){    
+                        gun.style.backgroundColor = "#aaa";      
+                        monster.style.transition = "none";
+                        monster.style.right = "0vw";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    } else if(livesCount === 3){
+                        monster.style.transition = "none";
+                        monster.style.right = "0vw";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    };  
+                };
+            } else if (windowSize.width < 700){
+                if (destiny >= 20 && destiny < 40) {
+                    livesCount -= 1;
+                    lives.innerHTML = livesCount;
+                    if (livesCount === 0){
+                        livesCount = 0;
+                        lives.innerHTML = livesCount;
+                        gun.style.top = "130vh";         
+                        setTimeout(() => {
+                            gun.style.display ="none"; 
+                        }, 500);  
+                        music.pause();
+                        ogreLaugh.play();
+                        monster.style.right = "75vw";
+                        monster.style.top = "20vh";
+                        setTimeout(() => {
+                            saveScores();
+                        }, 3010);
+                    } else if (livesCount === 1) {
+                        gun.style.backgroundColor = "#444"; 
+                        monster.style.transition = "none";
+                        monster.style.right = "0px";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    } else if(livesCount === 2){    
+                        gun.style.backgroundColor = "#aaa";      
+                        monster.style.transition = "none";
+                        monster.style.right = "0vw";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    } else if(livesCount === 3){
+                        monster.style.transition = "none";
+                        monster.style.right = "0vw";
+                        setTimeout(() => {
+                            monsterAttack();
+                        }, 100);
+                    };  
+                };
+            };
+        }, 100);
     }, 3000);
 };
 const setTop = () =>{
@@ -192,10 +280,12 @@ const setTop = () =>{
     randomTop = Math.round(randomTop);
     if (randomTop === 1) {
         monster.style.top = "10%";
-        monster.style.right = "0px";
+        monster.style.right = "0vw";
+        theTop.unshift(1);
     } else if (randomTop === 0){
         monster.style.top = "55%";
-        monster.style.right = "0px";
+        monster.style.right = "0vw";
+        theTop.unshift(0);
     };
     setTimeout(() => {
         monsterAttack();
@@ -203,21 +293,22 @@ const setTop = () =>{
 };
 setTop();
 const anotherOne =() =>{
+    monster.style.right ="0vw";
     monster.style.transition ="none";
     monster.style.display = "block";
-    monster.style.width = "200px";
-    monster.style.height = "180px";
+    monster.style.width = "14vw";
+    monster.style.height = "23vh";
     monster.style.backgroundColor = "#070";
-    monster.style.borderTop = "50px solid #020";
-    monster.style.borderBottom = "10px solid #020";
+    monster.style.borderTop = "5vh solid #020";
+    monster.style.borderBottom = "1vh solid #020";
     monster.style.borderRadius = "0% 0% 30% 30%";
     setTimeout(() => {
         monsterEyeL.style.display = "inline-block";
         monsterEyeL.style.backgroundColor = "#000";
-        monsterEyeL.style.borderTop = "5px solid #aaa"; 
+        monsterEyeL.style.borderTop = ".5vh solid #aaa"; 
         monsterEyeR.style.display = "inline-block";
         monsterEyeR.style.backgroundColor = "#000";
-        monsterEyeR.style.borderTop = "5px solid #aaa";  
+        monsterEyeR.style.borderTop = ".5vh solid #aaa";  
         monsterMouth.style.display ="inline-block";  
         monsterMouth.style.backgroundColor = "#700";
         monsterMouth.style.borderRadius = "0% 0% 50% 50%";
@@ -234,20 +325,20 @@ const restart = () =>{
     monster.style.transition ="none";
     monster.style.display = "block";
     monster.style.position = "absolute";
-    monster.style.width = "200px";
-    monster.style.height = "180px";
+    monster.style.width = "14vw";
+    monster.style.height = "23vh";
     monster.style.backgroundColor = "#070";
-    monster.style.borderTop = "50px solid #020";
-    monster.style.borderBottom = "10px solid #020";
+    monster.style.borderTop = "5vh solid #020";
+    monster.style.borderBottom = "1vh solid #020";
     monster.style.top = "10%";
     monster.style.right = "10px";
     monster.style.borderRadius = "0% 0% 30% 30%";
     monsterEyeL.style.display = "inline-block";
     monsterEyeL.style.backgroundColor = "#000";
-    monsterEyeL.style.borderTop = "5px solid #aaa";
+    monsterEyeL.style.borderTop = ".5vh solid #aaa";
     monsterEyeR.style.display = "inline-block";
     monsterEyeR.style.backgroundColor = "#000";
-    monsterEyeR.style.borderTop = "5px solid #aaa";
+    monsterEyeR.style.borderTop = ".5vh solid #aaa";
     monsterMouth.style.display ="inline-block";  
     monsterMouth.style.backgroundColor = "#700";
     monsterMouth.style.borderRadius = "0% 0% 50% 50%";
@@ -265,21 +356,28 @@ const restart = () =>{
 const killMonster = (time) =>{
     let gunPosition = gun.getBoundingClientRect();
     let monsterPosition = monster.getBoundingClientRect();
+    let killsPos = kills.getBoundingClientRect();
+    let killtop = killsPos.top;
+    let killright = killsPos.right;
     let topGun = gunPosition.top;
     let topMonster = monsterPosition.top;
+    let topMonsterMove = (windowSize.height - topMonster) * 0.1;
     let XMonster = monsterPosition.right;
+    let ranTop = theTop[0];
     if(topGun == topMonster && time == 1){    
-        monster.style.right = `${1440 - XMonster}px`;
+        monster.style.right = `${(windowSize.width - XMonster) * 0.1}vw`; 
         ogreScream.currentTime = .5;
         ogreScream.play();
-        if (topMonster === 82) {
-            monster.style.top = "55%";
-        } else if (topMonster === 284.5){
+        if (ranTop == 0) {
             monster.style.top = "10%";
-        };
+            theTop.unshift(1);
+        } else if (ranTop == 1){
+            monster.style.top = "55%";
+            theTop.unshift(0);
+        }; 
         monster.style.backgroundColor = "#660";
-        monster.style.borderBottom = "10px solid #aaa";
-        monster.style.borderTop="50px solid #000";
+        monster.style.borderBottom = "1vh solid #aaa";
+        monster.style.borderTop="5vh solid #000";
         monster.style.borderRadius ="0% 0% 30% 30%";
         monsterMouth.style.borderRadius = "0% 0% 0% 0%";
         monsterMouth.style.backgroundColor = "#400";
@@ -287,17 +385,17 @@ const killMonster = (time) =>{
         monsterEyeR.style.backgroundColor="#000";
         monsterAttack();
     } else if(topGun == topMonster && time == 2){        
-        monster.style.right = `${1440 - XMonster}px`; 
+        monster.style.right = `${(windowSize.width - XMonster) * 0.1}vw`; 
         ogreScream.currentTime = .5;
         ogreScream.play();
-        if (topMonster === 82) {
-            monster.style.top = "55%";
-        } else if (topMonster === 284.5){
+        if (ranTop == 0) {
             monster.style.top = "10%";
+        } else if (ranTop == 1){
+            monster.style.top = "55%";
         };
         monster.style.backgroundColor = "#600";
-        monster.style.borderBottom = "10px solid #333";
-        monster.style.borderTop="50px solid #444";
+        monster.style.borderBottom = "1vh solid #333";
+        monster.style.borderTop="5vh solid #444";
         monster.style.borderRadius ="0% 0% 30% 30%";
         monsterMouth.style.borderRadius = "50% 50% 0% 0%";
         monsterMouth.style.backgroundColor = "#100";
@@ -305,23 +403,24 @@ const killMonster = (time) =>{
         monsterEyeR.style.backgroundColor="#000";
         monsterAttack();
     } else if(topGun == topMonster && time == 3){
-        monster.style.right = `${1440 - XMonster}px`;
+        monster.style.transition="none";
+        monster.style.right = `0vw`; 
         deathSound.play();
         monster.style.backgroundColor = "#fff";
         monster.style.borderRadius = "50% 50% 0% 0%";
         monster.style.borderBottom = "none";
         monster.style.borderTop = "none";
         monsterMouth.style.borderRadius = "50% 50% 0% 0%";
-        monsterMouth.style.height ="25px";
+        monsterMouth.style.height ="3vh";
         monsterMouth.style.backgroundColor = "#aaa";
         monsterEyeL.style.backgroundColor="#aaa";
         monsterEyeR.style.backgroundColor="#aaa";
         monster.style.transition = "right 1s linear, top 1s linear, width 1s linear, height 1s linear";    
-        setTimeout(() => {
-            monster.style.top = "450px";
-            monster.style.right = "640px";
-            monster.style.width = "100px";
-            monster.style.height = "40px";
+        setTimeout(() => {  
+            monster.style.top = `${killtop - 40}px`;
+            monster.style.right = `${killright - 100}px`;
+            monster.style.width = "5vw";
+            monster.style.height = "2vh";
             monsterEyeL.style.display = "none";
             monsterEyeR.style.display = "none";
             monsterMouth.style.display ="none";  
@@ -342,16 +441,16 @@ const killMonster = (time) =>{
                     alert("Esta bien! Hasta la proxima!");
                     alert("Saliendo del juego...");
                 };
-            } else if(killsCount >= 40){
+            } else if(killsCount == 50){
                 scoreCount += 500;
                 score.innerHTML = scoreCount;
-            } else if (killsCount >= 20 && killsCount < 30){
+            } else if (killsCount >= 30 && killsCount < 40){
                 scoreCount += 400;
                 score.innerHTML = scoreCount;
-            } else if (killsCount >= 10 && killsCount < 20){
+            } else if (killsCount >= 20 && killsCount < 30){
                 scoreCount += 300;
                 score.innerHTML = scoreCount;
-            } else if (killsCount >= 0 && killsCount < 10){
+            } else if (killsCount >= 10 && killsCount < 20){
                 scoreCount += 200;
                 score.innerHTML = scoreCount;
             } else{
@@ -359,6 +458,7 @@ const killMonster = (time) =>{
                 score.innerHTML = scoreCount;
             };
             numbershot.splice(0, 3);
+            theTop.splice(0, 1);
             anotherOne();
         }, 2000);
     };
@@ -374,7 +474,7 @@ const shot = (time) =>{
         shotSound.play();
         ammo.style.width = "150%";
         ammo.style.height = "100%";
-        ammo.style.left ="1100px";
+        ammo.style.left ="110vw";
         ammo.style.transition ="width .2s linear, height .2s linear, left .5s ease-out";   
         setTimeout(() => {
             ammo.setAttribute("hidden", "");
@@ -390,7 +490,7 @@ const shot = (time) =>{
         movement.currentTime = .1;
         movement.play();
         shotOne.style.backgroundColor = "#000";
-        shotOne.style.border = "1px solid #fff";
+        shotOne.style.border = ".1vw solid #fff";
         shotOne.style.color = "#eee";
     };
 };
@@ -398,7 +498,7 @@ const reload =() =>{
     reloadSound.currentTime = .2;
     reloadSound.play();
     shotOne.style.backgroundColor = "#fff";
-    shotOne.style.border = "1px solid #000";
+    shotOne.style.border = ".1vw solid #000";
     shotOne.style.color = "#000";
     ammo.style.transition ="none";
     ammo.style.width = "50%";

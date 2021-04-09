@@ -23,36 +23,38 @@ body{
 .gun-container{
     position: relative;
     flex-basis: 37.5%;
-    height: 450px;
-    background-color: #002;
-    padding: 20px;
+    height: 60vh;
+    background-color: #003;
     display: inline-block;
     margin: none;
 }
   
 .gun-container__div--one{
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: .5vw;
+    height: 1vh;
+    top: 0;
+    left: 0;
     background-color: #700;
     border-radius: 5px;
     animation-name: movingOne;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: normal;
+    
 }
 .gun-container__div--two{
     position: absolute;
-    width: 10px;
-    height: 10px;  
-    bottom: 20px;
-    right: 20px;
+    width: 1vw;
+    height: 1vh; 
+    bottom: 0;
+    right: 0;
     background-color: #007; 
     border-radius: 5px;
     
     animation-name: movingTwo;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: normal;
@@ -61,15 +63,15 @@ body{
     position: absolute;
 
     top: 10%;
-    left: 25%;
+    left: 20%;
     
-    width: 200px;
-    height: 150px;
+    width: 15vw;
+    height: 20vh;
     background-color: #fff;
     border-radius: 50%;
     
     transition: top .1s linear;
-    transform: translate(50px, 0px);
+    transform: translate(4vw, 0vh);
 }
 .gun-container__div--four{
     position: absolute;
@@ -78,12 +80,12 @@ body{
     bottom: 0;
     top: 0;
     margin: auto;
-    width: 150px;
-    height: 100px;
+    width: 10vw;
+    height: 15vh;
     background-color: #000;
     border-radius: 50%;
 
-    transform: translate(50px, 0px);
+    transform: translate(4vw, 0vh);
     transition: top .3s linear;
 }
 
@@ -94,33 +96,32 @@ body{
     bottom: 0;
     top: 0;
     margin: auto;
-    width: 75px;
-    height: 50px;
+    width: 5vw;
+    height: 7vh;
     background-color: #aaa;
     border-radius: 50%;
 
     
     visibility: visible;
 
-    transform: translate(50px, 0px);
+    transform: translate(4vw, 0vh);
     transition: width .2s linear, height .2s linear, left .4s ease-out, visibility .7s linear, top .1s linear;
 }
 .monsters-container{
     position: relative;
     display: inline-block;
     flex-basis: 62.5%;
-    height: 450px;
-    padding: 20px;
+    height: 60vh;
 }
 .monsters-container__div{
     position: absolute;
-    width: 200px;
-    height: 180px;
+    width: 14vw;
+    height: 23vh;
     background-color: #070;
-    border-top: 50px solid #020;
-    border-bottom: 10px solid #020;
+    border-top: 5vh solid #020;
+    border-bottom: 1vh solid #020;
     top: 10%;
-    right: 10px;
+    right: 1vw;
     border-radius: 0% 0% 30% 30%;
 
     transition: top .1s linear, right 3s linear;
@@ -128,35 +129,35 @@ body{
 .monsters-container__div-span:nth-child(1){
     position: absolute;
     
-    width: 30px;
-    height: 20px;
+    width: 2vw;
+    height: 2.5vh;
     background-color: #000;
-    top: 30px;
-    left: 50px;
+    top: 4vh;
+    left: 3.5vw;
     
     border-radius: 0% 0% 50% 50%;
-    border-top: 5px solid #aaa;
+    border-top: .5vh solid #aaa;
 }
 .monsters-container__div-span:nth-child(2){
     position: absolute;
 
-    width: 30px;
-    height: 20px;
+    width: 2vw;
+    height: 2.5vh;
     background-color: #000;
-    top: 30px;
-    right: 50px;
+    top: 4vh;
+    right: 3.5vw;
 
     border-radius: 0% 0% 50% 50%;
-    border-top: 5px solid #aaa;
+    border-top: .5vh solid #aaa;
 }
 .monsters-container__div-span:nth-child(3){
     position: absolute;
 
-    width: 100px;
-    height: 20px;
+    width: 8.5vw;
+    height: 3vh;
     background-color: #700;
-    top: 80px;
-    right: 50px;
+    top: 10vh;
+    right: 2.7vw;
 
     border-radius:  0% 0% 50% 50%;
 }
@@ -170,9 +171,11 @@ body{
 .buttons-container__button{
     display: inline-block;
     flex-basis: 50%;
-    height: 40px;
+    height: 5.4vh;
     background-color: #fff;
-    border: 1px solid black;
+    border: .1vw solid black;
+    
+    font-size: 1vw;
 }
 .score-container{
     display: flex;
@@ -180,20 +183,28 @@ body{
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-basis: 62.5%;
+    flex-basis: 62.5%;    
+    
+    height: 5.4vh;
 }
 .score-container__p{
     flex-basis: 33.33%;
-    padding: 6px 15px;
     color: #aaa;
+    height: 100%;
+    padding-left: 3vw;
+    padding-top: 1vh;
+    
+    font-size: 1vw;
 }
 .score-container__p::first-letter{
-    font-size: 1.5em;
+    font-size: 1.5vw;
     color: #f55;
 }
 .score-container__p-span{
+    
+    font-size: 1vw;
     text-align: right;
-    margin-left: 50%;
+    margin-left: 9vw;
     color: #f55;
 }  
 .score-container__p:nth-child(1){
@@ -214,7 +225,7 @@ body{
 
     background-color: #666;
     flex-basis: 100%;
-    padding: 10px;
+    padding: 1vw;
 
 }
 .score-kept{
@@ -227,105 +238,106 @@ body{
 .score-name{
     flex-basis: 100%;
     text-align: center;
+    
+    font-size: 2vw;
 }
 .score-table{
     flex-basis: 100%;
-    padding: 10px;
+    padding: 1vw;
     background-color: #444;
     text-align: center;
-    margin: 5px;
+    margin: .2vw;
 }
 .score-table thead th{
-    padding: 5px;
+    padding: .5vw;
     background-color: #777;
     
-    font-size: 1.5em;
+    font-size: 1.5vw;
 }
 .score-table tr td{
-    padding: 5px;
+    padding: .5vw;
     background-color: #bbb;
     
-    font-size: 1.2em;
+    font-size: 1vw;
 }
 @keyframes movingOne{
     0%{
-        width: 500px;      
+        width: 37.5vw;      
     }
     15%{    
-        transform: translateX(500px);
-        width: 10px;
-        height: 10px;
+        transform: translateX(37vw);
+        width: .5vw;
+        height: 1vh;
     }
     30%{
-        width: 10px;
-        height: 400px;
-        transform: translateX(500px);
+        width: .5vw;
+        height: 59vh;
+        transform: translateX(37vw);
     }
     45%{
-        width: 10px;
-        height: 10px;
-        transform: translate(500px, 400px);
+        width: .5vw;
+        height: 1vh;
+        transform: translate(37vw, 59vh);
     }
     60%{
-        width: 500px;
-        height: 10px;
-        transform: translate(0px, 400px);
+        width: 37.5vw;
+        height: 1vh;
+        transform: translate(0vw, 59vh);
         background-color: #007;
     }
     75%{
-        width: 10px;
-        height: 10px;
-        transform: translate(0px, 400px);
-
+        width: .5vw;
+        height: 1vh;
+        transform: translate(0px, 59vh);
     }
     90%{
-        width: 10px;
-        height: 400px;
-        transform: translate(0px, 0px);
+        width: .5vw;
+        height: 59vh;
+        transform: translate(0vw, 0vh);
     }
     100%{
-        width: 10px;
-        height: 10px;
+        width: .5vw;
+        height: 1vh;
     }
 }
 @keyframes movingTwo{
     0%{
-        width: 500px;
-        height: 10px;   
+        width: 37.5vw;
+        height: 1vh;   
     }
     15%{
-        width: 10px;
-        height: 10px;
-        transform: translate(-500px, 0px);
+        width: .5vw;
+        height: 1vh;
+        transform: translate(-37vw, 0vh);
     }
     30%{
-        width: 10px;
-        height: 400px;
-        transform: translate(-500px, 0px);
+        width: .5vw;
+        height: 59vh;
+        transform: translate(-37vw, 0vh);
     }
     45%{
-        width: 10px;
-        height: 10px;
-        transform: translate(-500px, -400px);
+        width: .5vw;
+        height: 1vh;
+        transform: translate(-37vw, -59vh);
     }
     60%{
-        width: 500px;
-        height: 10px;
-        transform: translate(0px, -400px);
+        width: 37.5vw;
+        height: 1vh;
+        transform: translate(0vw, -59vh);
         background-color: #700;
     }
     75%{
-        width: 10px;
-        height: 10px;
-        transform: translate(0px, -400px);
+        width: .5vw;
+        height: 1vh;
+        transform: translate(0vw, -59vh);
     }
     90%{
-        width: 10px;
-        height: 400px;
-        transform: translate(0px, -0px);        
+        width: .5vw;
+        height: 59vh;
+        transform: translate(0vw, -0vh);        
     }
     100%{
-        width: 10px;
-        height: 10px;
+        width: .5vw;
+        height: 1vh;
     }
 }
