@@ -9,36 +9,40 @@
     <title>Ogre's Attack</title>
 </head>
 <body onkeydown="controls(event, 30);">
-    <h1 class="game-title">Mata al OGRO!</h1>
-    <div class="game-container">
-        <div class="gun-container">
-            <div class="gun-container__div--one"></div>
-            <div class="gun-container__div--two"></div>
-            <div id="gun" class="gun-container__div--three">     
-                <div class="gun-container__div--four">
-                    <div id="ammo" class="gun-container__div--five"></div>
+    <h2 class="turn">Voltea el tlf o tablet</h2>
+    <div class="game">
+        <h1 class="game-title">Mata al OGRO!</h1>
+        <div class="game-container">
+            <div onclick="moveGun();" class="gun-container">
+                <div class="gun-container__div--one"></div>
+                <div class="gun-container__div--two"></div>
+                <div  id="gun" class="gun-container__div--three">     
+                    <div class="gun-container__div--four">
+                        <div id="ammo" class="gun-container__div--five"></div>
+                    </div>
                 </div>
             </div>
+            <div onclick="moveGun();" class="monsters-container">
+                <div id="monster" class="monsters-container__div">
+                    <span id="eye-L" class="monsters-container__div-span"></span>
+                    <span id="eye-R" class="monsters-container__div-span"></span>
+                    <span id="mouth" class="monsters-container__div-span"></span>
+                </div>    
+            </div>
+            <div class="buttons-container">
+                <button id="shotOne" onclick="shot();" class="buttons-container__button">Disparar</button>
+                <button onclick="reload();" class="buttons-container__button">Recargar</button>
+            </div>
+            <div class="score-container">
+                <p class="score-container__p">Kills: <span id="kills" class="score-container__p-span">0</span></p>
+                <p class="score-container__p">Score: <span id="score" class="score-container__p-span">0</span></p>
+                <p class="score-container__p">Lives: <span id="lives" class="score-container__p-span">3</span></p>
+            </div>
+            <div class="score-table-container"></div>
         </div>
-        <div class="monsters-container">
-            <div id="monster" class="monsters-container__div">
-                <span id="eye-L" class="monsters-container__div-span"></span>
-                <span id="eye-R" class="monsters-container__div-span"></span>
-                <span id="mouth" class="monsters-container__div-span"></span>
-            </div>    
-        </div>
-        <div class="buttons-container">
-            <button id="shotOne" onclick="shot();" class="buttons-container__button">Disparar</button>
-            <button onclick="reload();" class="buttons-container__button">Recargar</button>
-        </div>
-        <div class="score-container">
-            <p class="score-container__p">Kills: <span id="kills" class="score-container__p-span">0</span></p>
-            <p class="score-container__p">Score: <span id="score" class="score-container__p-span">0</span></p>
-            <p class="score-container__p">Lives: <span id="lives" class="score-container__p-span">3</span></p>
-        </div>
-        <div class="score-table-container"></div>
+        <div id="effects"></div> 
     </div>
-    <div id="effects"></div>
-  <script src="js/script.js"></script>  
+    
+    <script src="js/script.js"></script> 
 </body>
 </html>    

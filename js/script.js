@@ -68,7 +68,8 @@ let livesCount = lives.textContent;
 livesCount = parseInt(livesCount);
 let scoresNames = [];
 let numbershot = [0];
-let theTop = [];
+let theTopMonster = [];
+let theTopGun = [1];
 const saveScores =()=>{
     let decide = prompt(`Kills: ${killsCount}. Puntuacion: ${scoreCount}. Quieres guardar estos datos? S-Si N-No`);
     let scoreTableDiv = document.querySelector(".score-table-container");
@@ -149,7 +150,6 @@ const monsterAttack = () =>{
         monsterPosition = monster.getBoundingClientRect();
         XMonster = monsterPosition.right;
         let destiny =  (windowSize.width - XMonster) * 0.1;
-        console.log(destiny);
         setTimeout(() => {
             if(windowSize.width > 1000 && windowSize.width <= 2000){
                 if (destiny > 56 && destiny <= 115) {
@@ -281,11 +281,11 @@ const setTop = () =>{
     if (randomTop === 1) {
         monster.style.top = "10%";
         monster.style.right = "0vw";
-        theTop.unshift(1);
+        theTopMonster.unshift(1);
     } else if (randomTop === 0){
         monster.style.top = "55%";
         monster.style.right = "0vw";
-        theTop.unshift(0);
+        theTopMonster.unshift(0);
     };
     setTimeout(() => {
         monsterAttack();
@@ -361,19 +361,18 @@ const killMonster = (time) =>{
     let killright = killsPos.right;
     let topGun = gunPosition.top;
     let topMonster = monsterPosition.top;
-    let topMonsterMove = (windowSize.height - topMonster) * 0.1;
     let XMonster = monsterPosition.right;
-    let ranTop = theTop[0];
+    let ranTop = theTopMonster[0];
     if(topGun == topMonster && time == 1){    
         monster.style.right = `${(windowSize.width - XMonster) * 0.1}vw`; 
         ogreScream.currentTime = .5;
         ogreScream.play();
         if (ranTop == 0) {
             monster.style.top = "10%";
-            theTop.unshift(1);
+            theTopMonster.unshift(1);
         } else if (ranTop == 1){
             monster.style.top = "55%";
-            theTop.unshift(0);
+            theTopMonster.unshift(0);
         }; 
         monster.style.backgroundColor = "#660";
         monster.style.borderBottom = "1vh solid #aaa";
@@ -458,7 +457,7 @@ const killMonster = (time) =>{
                 score.innerHTML = scoreCount;
             };
             numbershot.splice(0, 3);
-            theTop.splice(0, 1);
+            theTopMonster.splice(0, 1);
             anotherOne();
         }, 2000);
     };
@@ -510,6 +509,7 @@ const controls = (event, position) =>{
     let dir = event.which || event.keyCode;
     if(dir === 27){
         alert("Saliendo");
+        window.close();
     }; 
     if(dir === 67){
         alert(controlsInfo);
@@ -536,3 +536,17 @@ const controls = (event, position) =>{
         movement.play();
     };
 }; 
+const moveGun = () => {
+    let gunPos = theTopGun[0];
+    if (gunPos == 0) {
+        gun.style.top = "10%";
+        theTopGun.unshift(1);
+        theTopGun.pop();
+        console.log(theTopGun);
+    } else if (gunPos == 1){
+        gun.style.top = "55%";
+        theTopGun.unshift(0);
+        theTopGun.pop();
+        console.log(theTopGun);
+    }; 
+};
